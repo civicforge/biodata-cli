@@ -8,7 +8,7 @@ biodata [command] [flags]
 
 ---
 
-## 1. `version`
+## `version`
 
 **Description:**  
 Display the current version of the CLI.
@@ -27,7 +27,7 @@ BioData CLI v0.1.0
 
 ---
 
-## 2. `index`
+## `index`
 
 **Description:**  
 Index all supported data files in a given directory, recursively.
@@ -49,7 +49,7 @@ biodata index <path> [flags]
 
 ---
 
-## 3. `search`
+## `search`
 
 **Description:**  
 Search the in-memory index for datasets matching filter criteria.
@@ -80,7 +80,7 @@ biodata search --format geojson --geometry Point --crs EPSG:4326
 
 ---
 
-## 4. `show`
+## `show`
 
 **Description:**  
 Display full metadata for a dataset in the index.
@@ -129,7 +129,7 @@ biodata tag 3 --remove outdated
 
 ---
 
-## 6. `export`
+## `export`
 
 **Description:**  
 Export the entire index or a filtered subset to a structured file.
@@ -156,7 +156,7 @@ biodata export --format json --output index.json
 
 ---
 
-## 7. `help`
+## `help`
 
 **Description:**  
 Display command-specific help.
