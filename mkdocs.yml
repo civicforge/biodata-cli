@@ -1,0 +1,30 @@
+site_name: BioData CLI
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - content.code.annotate
+    - content.tabs.link
+    - palette.toggle
+    - palette:
+        - scheme: default
+          primary: indigo
+          accent: indigo
+        - scheme: slate
+          primary: indigo
+          accent: indigo
+          toggle:
+            icon: material/weather-night
+            name: Switch to dark mode
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Installation: installation.md
+      - Usage: usage.md
+  - CLI Reference: commands.md
+

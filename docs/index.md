@@ -1,3 +1,6 @@
-# BioData CLI
+# Welcome to BioData CLI
 
-Welcome to the official documentation for BioData CLI.
+BioData CLI helps conservationists and researchers work with messy, undocumented
+spatial datasets.
+
+> Learn how to install, use, and extend it.
