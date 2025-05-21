@@ -154,7 +154,7 @@ and speed, this tool is for you.
 
 ## Credits
 
-Created and maintained by \[Mathew Bravo].
+Created and maintained by [Mathew Bravo](https://github.com/MathewBravo).
 BioData CLI was inspired by the daily frustrations of working with unindexed,
 poorly documented spatial data in critical domains like conservation and public research.
 
