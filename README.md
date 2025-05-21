@@ -155,10 +155,10 @@ and speed, this tool is for you.
 ## Credits
 
 Created and maintained by [Mathew Bravo](https://github.com/MathewBravo).
-BioData CLI was inspired by the daily frustrations of working with unindexed,
-poorly documented spatial data. My families passion for the conservation of 
-elephants and other African wildlife. My respect for individuals like 
-Jane Goodall & Ian Douglas-Hamilton, who remind me no one is too small to make 
-a meaningful difference.
+BioData CLI was inspired by the practical frustrations of working with unindexed,
+poorly documented spatial data, and by my family's deep passion for the
+conservation of elephants and other African wildlife. It’s also a tribute to
+individuals like Jane Goodall and Ian Douglas-Hamilton, whose work reminds me
+that no one is too small to make a meaningful difference.
 
 If you're using this tool in the field, let me know. I’d love to hear how it's helping.
