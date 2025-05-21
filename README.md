@@ -2,7 +2,7 @@
 
 **BioData CLI** is a command-line tool for indexing, searching, and managing
 local spatial and biodiversity datasets. It helps researchers, conservationists,
-and data professionals make sense of fragmented files—without needing complex
+and data professionals make sense of fragmented files, without needing complex
 GIS tools.
 
 This project is built to support practical, high-impact work with clean, fast
