@@ -101,7 +101,7 @@ biodata show <dataset-id>
 
 ---
 
-## 5. `tag`
+## `tag`
 
 **Description:**  
 Add or remove tags to a dataset in the index.
