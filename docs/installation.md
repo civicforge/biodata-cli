@@ -1,5 +1,5 @@
 # Installation
 
 ```bash
-pip install biodata-cli
+To Be Determined
 ```
