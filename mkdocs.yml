@@ -11,15 +11,16 @@ theme:
     - content.tabs.link
     - palette.toggle
   palette:
-    - scheme: default
-      primary: indigo
-      accent: indigo
-    - scheme: slate
-      primary: indigo
-      accent: indigo
+    - media: "(prefers-color-scheme: light)"
+      scheme: indigo
       toggle:
-        icon: material/weather-night
+        icon: material/brightness-7
         name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
         
 nav:
   - Home: index.md
