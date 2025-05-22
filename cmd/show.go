@@ -8,8 +8,8 @@ import (
 
 func init() {
 	showCmd.PersistentFlags().StringP("pretty", "", "", "Format output nicely for terminal")
-	showCmd.PersistentFlags().StringP("geometry", "", "", "Output metadata in JSON format")
-	showCmd.PersistentFlags().StringP("crs", "", "", "Dump all fields unformatted")
+	showCmd.PersistentFlags().StringP("json", "", "", "Output metadata in JSON format")
+	showCmd.PersistentFlags().StringP("raw", "", "", "Dump all fields unformatted")
 	rootCmd.AddCommand(showCmd)
 }
 
