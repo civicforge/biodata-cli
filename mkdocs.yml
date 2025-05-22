@@ -10,17 +10,17 @@ theme:
     - content.code.annotate
     - content.tabs.link
     - palette.toggle
-    - palette:
-        - scheme: default
-          primary: indigo
-          accent: indigo
-        - scheme: slate
-          primary: indigo
-          accent: indigo
-          toggle:
-            icon: material/weather-night
-            name: Switch to dark mode
-
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+        
 nav:
   - Home: index.md
   - Getting Started:
