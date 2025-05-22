@@ -46,8 +46,13 @@ changelog:
       - "^test:"
 
 release:
+  github:
+    owner: civicforge
+    name: biodata-cli
   footer: >-
 
     ---
 
     Released by [GoReleaser](https://github.com/goreleaser/goreleaser).
+
+
