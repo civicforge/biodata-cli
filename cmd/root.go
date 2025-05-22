@@ -21,6 +21,11 @@ var rootCmd = &cobra.Command{
 	},
 }
 
+func init() {
+	rootCmd.PersistentFlags().BoolP("quiet", "q", false, "Suppress non-error output")
+	rootCmd.PersistentFlags().BoolP("debug", "d", false, "Show debug logs")
+}
+
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
