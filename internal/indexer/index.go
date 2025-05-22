@@ -4,10 +4,11 @@ import (
 	"fmt"
 	"io/fs"
 	"path/filepath"
+	"slices"
 
+	"github.com/civicforge/biodata-cli/internal/fileparser"
 	"github.com/civicforge/biodata-cli/internal/logging"
 	"github.com/spf13/cobra"
-	"slices"
 )
 
 var supportedFormats = map[string]struct{}{
@@ -95,7 +96,17 @@ func indexFile(path string, d fs.DirEntry, err error) error {
 		return nil
 	}
 
-	fmt.Println("Indexing:", path)
+	switch ext {
+	case "geojson":
+		idxf, err := fileparser.ParseGeoJson(path)
+		if err != nil {
+			return err
+		}
+		fmt.Printf("%+v\n", idxf)
+
+	default:
+		logging.Error("Parsing not implemented for supported type: " + ext)
+	}
 
 	return nil
 }
