@@ -6,14 +6,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var Resurse bool
-var Verbose bool
-var Format string
-
 func init() {
-	indexCmd.PersistentFlags().BoolVarP(&Verbose, "verbose", "v", false, "Show all indexed files and errors")
-	indexCmd.PersistentFlags().BoolVarP(&Resurse, "recursive", "r", true, "Recurse into subdirectories")
-	indexCmd.PersistentFlags().StringVarP(&Format, "format", "", "", "Only includes files of thise format(e.g geojson, csv)")
+	indexCmd.PersistentFlags().BoolP("verbose", "v", false, "Show all indexed files and errors")
+	indexCmd.PersistentFlags().BoolP("recursive", "r", true, "Recurse into subdirectories")
+	indexCmd.PersistentFlags().StringP("format", "", "", "Only includes files of thise format(e.g geojson, csv)")
 	rootCmd.AddCommand(indexCmd)
 }
 
