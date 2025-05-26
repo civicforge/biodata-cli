@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"time"
 
 	"github.com/civicforge/biodata-cli/internal/logging"
 	"github.com/civicforge/biodata-cli/internal/model"
@@ -104,7 +103,7 @@ func ParseGeoJson(path string) (model.IndexedFile, error) {
 		Filename:     filepath.Base(path),
 		Extension:    "geojson",
 		SizeBytes:    sizeInBytes,
-		ModifiedTime: time.Now(),
+		ModifiedTime: info.ModTime(),
 		Format:       "geojson",
 		CRS:          "EPSG:4326",
 		NumFeatures:  featureLength,
