@@ -6,7 +6,6 @@ import (
 	"reflect"
 	"sort"
 	"strings"
-	"time"
 
 	"github.com/civicforge/biodata-cli/internal/logging"
 	"github.com/civicforge/biodata-cli/internal/model"
@@ -63,7 +62,7 @@ func ParseShapefile(path string) (model.IndexedFile, error) {
 		Filename:     filepath.Base(path),
 		Extension:    "shp",
 		SizeBytes:    sizeInBytes,
-		ModifiedTime: time.Now(),
+		ModifiedTime: info.ModTime(),
 		Format:       "shapefile",
 		// once I set up zip file reading this needs to be extracted from .prj file
 		CRS:         "EPSG:4326",

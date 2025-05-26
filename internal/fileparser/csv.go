@@ -6,7 +6,6 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	"time"
 
 	"github.com/civicforge/biodata-cli/internal/logging"
 	"github.com/civicforge/biodata-cli/internal/model"
@@ -56,7 +55,7 @@ func ParseCSV(path string) (model.IndexedFile, error) {
 		Filename:     filepath.Base(path),
 		Extension:    "csv",
 		SizeBytes:    sizeInBytes,
-		ModifiedTime: time.Now(),
+		ModifiedTime: info.ModTime(),
 		Format:       "csv",
 		CRS:          "EPSG:4326",
 		NumFeatures:  len(headers),
