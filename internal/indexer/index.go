@@ -109,6 +109,12 @@ func indexFile(path string, d fs.DirEntry, err error) error {
 			return err
 		}
 		fmt.Printf("%+v\n", idxf)
+	case "shp":
+		idxf, err := fileparser.ParseShapefile(path)
+		if err != nil {
+			return err
+		}
+		fmt.Printf("%+v\n", idxf)
 	default:
 		logging.Error("Parsing not implemented for supported type: " + ext)
 	}
