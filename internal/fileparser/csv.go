@@ -2,7 +2,6 @@ package fileparser
 
 import (
 	"encoding/csv"
-	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
@@ -33,13 +32,11 @@ func ParseCSV(path string) (model.IndexedFile, error) {
 		return model.IndexedFile{}, err
 	}
 
-	latCol, longCol, ok := detectLatLongFromHeader(headers)
+	_, _, ok := detectLatLongFromHeader(headers)
 	if !ok {
 		logging.Error("Could not find a lat or long col")
 		return model.IndexedFile{}, nil
 	}
-
-	fmt.Println(latCol, longCol)
 
 	var fields []model.FieldMetadata
 	for _, h := range headers {

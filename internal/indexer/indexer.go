@@ -30,6 +30,7 @@ var supportedFormats = map[string]struct{}{
 
 var hasFormat bool
 var selectedFormats []string
+var idx index.Index
 
 func Index(cmd *cobra.Command, args []string) {
 	inputPath := args[0]
@@ -60,6 +61,14 @@ func Index(cmd *cobra.Command, args []string) {
 		logging.Error(err.Error())
 		return
 	}
+	err = index.SaveIndexToJson(idx, inputPath)
+	if err != nil {
+		logging.Error(err.Error())
+		return
+	} else {
+		logging.Info("Writing Index to File for Testing")
+	}
+
 }
 
 func isSupportedFormat(ext string) (bool, error) {
@@ -97,8 +106,6 @@ func indexFile(path string, d fs.DirEntry, err error) error {
 		return nil
 	}
 
-	var idx index.Index
-
 	switch ext {
 	case "geojson":
 		idxf, err := fileparser.ParseGeoJson(path)
@@ -126,10 +133,6 @@ func indexFile(path string, d fs.DirEntry, err error) error {
 		idx.IndexedFiles = append(idx.IndexedFiles, idxf)
 	default:
 		logging.Error("Parsing not implemented for supported type: " + ext)
-	}
-
-	for _, file := range idx.IndexedFiles {
-		fmt.Printf("%+v\n", file)
 	}
 
 	return nil
