@@ -7,6 +7,7 @@ import (
 	"slices"
 
 	"github.com/civicforge/biodata-cli/internal/fileparser"
+	"github.com/civicforge/biodata-cli/internal/index"
 	"github.com/civicforge/biodata-cli/internal/logging"
 	"github.com/spf13/cobra"
 )
@@ -96,33 +97,39 @@ func indexFile(path string, d fs.DirEntry, err error) error {
 		return nil
 	}
 
+	var idx index.Index
+
 	switch ext {
 	case "geojson":
 		idxf, err := fileparser.ParseGeoJson(path)
 		if err != nil {
 			return err
 		}
-		fmt.Printf("%+v\n", idxf)
+		idx.IndexedFiles = append(idx.IndexedFiles, idxf)
 	case "csv":
 		idxf, err := fileparser.ParseCSV(path)
 		if err != nil {
 			return err
 		}
-		fmt.Printf("%+v\n", idxf)
+		idx.IndexedFiles = append(idx.IndexedFiles, idxf)
 	case "shp":
 		idxf, err := fileparser.ParseShapefile(path)
 		if err != nil {
 			return err
 		}
-		fmt.Printf("%+v\n", idxf)
+		idx.IndexedFiles = append(idx.IndexedFiles, idxf)
 	case "parquet":
 		idxf, err := fileparser.ParseParquet(path)
 		if err != nil {
 			return err
 		}
-		fmt.Printf("%+v\n", idxf)
+		idx.IndexedFiles = append(idx.IndexedFiles, idxf)
 	default:
 		logging.Error("Parsing not implemented for supported type: " + ext)
+	}
+
+	for _, file := range idx.IndexedFiles {
+		fmt.Printf("%+v\n", file)
 	}
 
 	return nil
