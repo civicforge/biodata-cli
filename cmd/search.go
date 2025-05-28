@@ -1,8 +1,7 @@
 package cmd
 
 import (
-	"fmt"
-
+	"github.com/civicforge/biodata-cli/internal/search"
 	"github.com/spf13/cobra"
 )
 
@@ -20,8 +19,5 @@ func init() {
 var searchCmd = &cobra.Command{
 	Use:   "search",
 	Short: "Search the in-memory index for datasets matching filter criteria.",
-	Args:  cobra.MinimumNArgs(1),
-	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("TODO: Implement Search")
-	},
+	Run:   search.Search,
 }
