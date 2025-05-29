@@ -2,7 +2,6 @@ package search
 
 import (
 	"encoding/json"
-	"fmt"
 	"os"
 	"strings"
 
@@ -67,14 +66,14 @@ func Search(cmd *cobra.Command, args []string) {
 	filters.Name, _ = cmd.Flags().GetString("name")
 	filters.Field, _ = cmd.Flags().GetString("field")
 
+	var matches []model.IndexedFile
+
 	for _, idx := range indexes.IndexedFiles {
 		if filters.Matches(idx) {
-			data, err := json.MarshalIndent(idx, "", "  ")
-			if err != nil {
-				fmt.Printf("Error marshaling struct: %v\n", err)
-				continue
-			}
-			fmt.Println(string(data))
+			matches = append(matches, idx)
 		}
 	}
+
+	DisplayResults(matches)
+
 }
