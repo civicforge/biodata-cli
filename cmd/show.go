@@ -1,15 +1,14 @@
 package cmd
 
 import (
-	"fmt"
-
+	"github.com/civicforge/biodata-cli/internal/show"
 	"github.com/spf13/cobra"
 )
 
 func init() {
-	showCmd.PersistentFlags().StringP("pretty", "", "", "Format output nicely for terminal")
-	showCmd.PersistentFlags().StringP("json", "", "", "Output metadata in JSON format")
-	showCmd.PersistentFlags().StringP("raw", "", "", "Dump all fields unformatted")
+	showCmd.PersistentFlags().BoolP("pretty", "", false, "Format output nicely for terminal")
+	showCmd.PersistentFlags().BoolP("json", "", false, "Output metadata in JSON format")
+	showCmd.PersistentFlags().BoolP("raw", "", false, "Dump all fields unformatted")
 	rootCmd.AddCommand(showCmd)
 }
 
@@ -17,7 +16,5 @@ var showCmd = &cobra.Command{
 	Use:   "show",
 	Short: "Display full metadata for a dataset in the index",
 	Args:  cobra.MinimumNArgs(1),
-	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("TODO: Implement Show")
-	},
+	Run:   show.Show,
 }
