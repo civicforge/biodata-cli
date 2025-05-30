@@ -30,10 +30,10 @@ func (m mod) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			}
 		case "q", "ctrl+c":
 			return m, tea.Quit
-		case "enter":
-			return m, tea.Batch(
-				tea.Printf("Let's go to %s!", m.table.SelectedRow()[0]),
-			)
+			// case "enter":
+			// 	return m, tea.Batch(
+			// 		tea.Printf("Let's go to %s!", m.table.SelectedRow()[0]),
+			// 	)
 		}
 	}
 	m.table, cmd = m.table.Update(msg)
@@ -46,22 +46,25 @@ func (m mod) View() string {
 
 func DisplayResults(result []model.IndexedFile) {
 	columns := []table.Column{
-		{Title: "File Name", Width: 20},
+		{Title: "ID", Width: 3},
 		{Title: "Format", Width: 10},
-		{Title: "Size", Width: 10},
-		{Title: "# of Features", Width: 5},
+		{Title: "CRS", Width: 12},
+		{Title: "# Features", Width: 10},
+		{Title: "Path", Width: 40},
 	}
 
 	rows := make([]table.Row, len(result))
 	for i, idxf := range result {
-		rows[i] = table.Row{idxf.Filename, idxf.Format, strconv.FormatInt(idxf.SizeBytes, 10), strconv.Itoa(idxf.NumFeatures)}
+		rows[i] = table.Row{strconv.Itoa(idxf.ID), idxf.Format, idxf.CRS, strconv.Itoa(idxf.NumFeatures), idxf.Path}
 	}
+
+	height := min(len(rows)+3, 20)
 
 	t := table.New(
 		table.WithColumns(columns),
 		table.WithRows(rows),
 		table.WithFocused(true),
-		table.WithHeight(20),
+		table.WithHeight(height),
 	)
 
 	s := table.DefaultStyles()
@@ -73,7 +76,6 @@ func DisplayResults(result []model.IndexedFile) {
 		Bold(true)
 
 	s.Cell = s.Cell.
-		BorderStyle(lipgloss.NormalBorder()).
 		BorderRight(true).
 		BorderForeground(lipgloss.Color("238"))
 

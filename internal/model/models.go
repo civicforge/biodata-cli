@@ -5,6 +5,7 @@ import (
 )
 
 type IndexedFile struct {
+	ID           int               // Unique ID
 	Path         string            // Full file path
 	Filename     string            // Base file name
 	Extension    string            // File extension (e.g., csv, shp)

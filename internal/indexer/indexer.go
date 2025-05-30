@@ -112,24 +112,28 @@ func indexFile(path string, d fs.DirEntry, err error) error {
 		if err != nil {
 			return err
 		}
+		idxf.ID = len(idx.IndexedFiles)
 		idx.IndexedFiles = append(idx.IndexedFiles, idxf)
 	case "csv":
 		idxf, err := fileparser.ParseCSV(path)
 		if err != nil {
 			return err
 		}
+		idxf.ID = len(idx.IndexedFiles)
 		idx.IndexedFiles = append(idx.IndexedFiles, idxf)
 	case "shp":
 		idxf, err := fileparser.ParseShapefile(path)
 		if err != nil {
 			return err
 		}
+		idxf.ID = len(idx.IndexedFiles)
 		idx.IndexedFiles = append(idx.IndexedFiles, idxf)
 	case "parquet":
 		idxf, err := fileparser.ParseParquet(path)
 		if err != nil {
 			return err
 		}
+		idxf.ID = len(idx.IndexedFiles)
 		idx.IndexedFiles = append(idx.IndexedFiles, idxf)
 	default:
 		logging.Error("Parsing not implemented for supported type: " + ext)
